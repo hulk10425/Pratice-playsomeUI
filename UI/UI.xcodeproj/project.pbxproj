@@ -15,6 +15,7 @@
 		BE8E5DA11F32AE2E0073FB11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE8E5D9F1F32AE2E0073FB11 /* LaunchScreen.storyboard */; };
 		BE8E5DA91F32AF8C0073FB11 /* Candy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8E5DA81F32AF8C0073FB11 /* Candy.swift */; };
 		BE8E5DAB1F32B1480073FB11 /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8E5DAA1F32B1480073FB11 /* CartCell.swift */; };
+		BE8E5DAD1F32B7A20073FB11 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8E5DAC1F32B7A20073FB11 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		BE8E5DA21F32AE2E0073FB11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE8E5DA81F32AF8C0073FB11 /* Candy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Candy.swift; sourceTree = "<group>"; };
 		BE8E5DAA1F32B1480073FB11 /* CartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
+		BE8E5DAC1F32B7A20073FB11 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				BE8E5D931F32AE2E0073FB11 /* AppDelegate.swift */,
 				BE8E5D951F32AE2E0073FB11 /* ViewController.swift */,
+				BE8E5DAC1F32B7A20073FB11 /* WebViewController.swift */,
 				BE8E5DAA1F32B1480073FB11 /* CartCell.swift */,
 				BE8E5DA81F32AF8C0073FB11 /* Candy.swift */,
 				BE8E5D971F32AE2E0073FB11 /* Main.storyboard */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE8E5D961F32AE2E0073FB11 /* ViewController.swift in Sources */,
+				BE8E5DAD1F32B7A20073FB11 /* WebViewController.swift in Sources */,
 				BE8E5DAB1F32B1480073FB11 /* CartCell.swift in Sources */,
 				BE8E5DA91F32AF8C0073FB11 /* Candy.swift in Sources */,
 				BE8E5D9C1F32AE2E0073FB11 /* UI.xcdatamodeld in Sources */,
