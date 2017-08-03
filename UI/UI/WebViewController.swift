@@ -11,12 +11,21 @@ import WebKit
 
 
 class WebViewController: UIViewController {
-
+    
+    var containerView: UIView!
     var webView: WKWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let url = URL(string: "http://petopia.cc/") {
+            let request = URLRequest(url: url)
+            webView.load(request)
+        }
+
+    }
+    override func loadView() {
+        webView = WKWebView()
+        view = webView
     }
 
     override func didReceiveMemoryWarning() {
