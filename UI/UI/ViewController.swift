@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UISearchResultsUpdating {
     var searchController: UISearchController!
     var searchResults:[Candy] = []
+    var button = UIButton()
+    let controller = WebViewController()
 
     
     var candies = [
@@ -39,6 +41,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         DispatchQueue.main.async {
             self.view.addSubview(self.tableView)
             self.view.bringSubview(toFront: self.tableView)
+            self.view.addSubview(self.button)
+            self.view.bringSubview(toFront: self.button)
         }
         
         
@@ -47,8 +51,16 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         
-        
+        button.frame = CGRect(x: 0, y: 0, width: 37, height: 37)
+        button.setImage(UIImage(named: "clipboard"), for: UIControlState())
+        button.addTarget(self, action: #selector(checktoWebcontroller), for: .touchUpInside)
     }
+    
+    func checktoWebcontroller() {
+     
+        self.present(controller, animated: true, completion: nil)
+    }
+    
 
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,9 +70,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         } else {
             return candies.count
         }
-       
-        
-        
     }
     
     
