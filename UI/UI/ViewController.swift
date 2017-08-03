@@ -44,15 +44,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         searchController = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchController.searchBar
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
         
         
     }
 
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if searchController.isActive {
+            return searchResults.count
+        } else {
+            return candies.count
+        }
        
         
-        return candies.count
+        
     }
     
     
@@ -60,8 +68,18 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let cellReuseIdendifier = "cell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdendifier, for: indexPath) as! CartCell
         
+        let candy = (searchController.isActive) ? searchResults[indexPath.row] : candies[indexPath.row]
         
-        cell.myLabel.text = candies[indexPath.row].name
+        
+        //cell.myLabel.text = candies[indexPath.row].name
+        
+        cell.myLabel.text = candy.name
+        //cell.thumbnailImageView.image = UIImage(data: restaurant.image as! Data)
+       // cell.locationLabel.text = restaurant.location
+        //cell.typeLabel.text = restaurant.type
+        
+        //cell.accessoryType = restaurant.isVisited ? .checkmark : .none
+
         
         
         return cell
