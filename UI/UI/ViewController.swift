@@ -13,6 +13,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var searchResults:[Candy] = []
     var button = UIButton()
     let controller = WebViewController()
+    
 
     
     var candies = [
@@ -30,6 +31,26 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //為啥這行放在    viiewDidLoad外面就不行
+        let navController = UINavigationController()
+         let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        appDelegate?.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let mainView = ViewController(nibName: nil, bundle: nil) //ViewController = Name of your controller
+        navController.viewControllers = [mainView]
+        appDelegate?.window!.rootViewController = navController
+       // appDelegate?.window?.makeKeyAndVisible()
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         //tableView.frame = CGRect(x: 10, y: 10, width: 100, height: 500)
         tableView.frame = CGRect(x: 0, y: 0, width:view.frame.width, height: view.frame.height)
         tableView.dataSource = self as! UITableViewDataSource
