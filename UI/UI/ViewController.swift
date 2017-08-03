@@ -31,27 +31,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //為啥這行放在    viiewDidLoad外面就不行
-        let navController = UINavigationController()
-         let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        appDelegate?.window = UIWindow(frame: UIScreen.main.bounds)
-        
-        let mainView = ViewController(nibName: nil, bundle: nil) //ViewController = Name of your controller
-        navController.viewControllers = [mainView]
-        appDelegate?.window!.rootViewController = navController
-       // appDelegate?.window?.makeKeyAndVisible()
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        //tableView.frame = CGRect(x: 10, y: 10, width: 100, height: 500)
+       
         tableView.frame = CGRect(x: 0, y: 0, width:view.frame.width, height: view.frame.height)
         tableView.dataSource = self as! UITableViewDataSource
         tableView.delegate = self as! UITableViewDelegate
@@ -65,14 +45,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             self.view.addSubview(self.button)
             self.view.bringSubview(toFront: self.button)
         }
-        
-        
         searchController = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         
-        button.frame = CGRect(x: 0, y: 0, width: 37, height: 37)
+        button.frame = CGRect(x: view.frame.width - 40, y: 80, width: 37, height: 37)
         button.setImage(UIImage(named: "clipboard"), for: UIControlState())
         button.addTarget(self, action: #selector(checktoWebcontroller), for: .touchUpInside)
     }
@@ -99,19 +77,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdendifier, for: indexPath) as! CartCell
         
         let candy = (searchController.isActive) ? searchResults[indexPath.row] : candies[indexPath.row]
-        
-        
-        //cell.myLabel.text = candies[indexPath.row].name
-        
         cell.myLabel.text = candy.name
-        //cell.thumbnailImageView.image = UIImage(data: restaurant.image as! Data)
-       // cell.locationLabel.text = restaurant.location
-        //cell.typeLabel.text = restaurant.type
-        
-        //cell.accessoryType = restaurant.isVisited ? .checkmark : .none
-
-        
-        
         return cell
     }
     

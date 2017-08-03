@@ -21,7 +21,16 @@ class WebViewController: UIViewController {
             let request = URLRequest(url: url)
             webView.load(request)
         }
-
+        
+//        let navController = UINavigationController()
+//        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+//        appDelegate?.window = UIWindow(frame: UIScreen.main.bounds)
+//        
+//        let mainView = WebViewController(nibName: nil, bundle: nil) //ViewController = Name of your controller
+//        navController.viewControllers = [mainView]
+//        appDelegate?.window!.rootViewController = navController
+//        appDelegate?.window?.makeKeyAndVisible()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(backAction))
     }
     override func loadView() {
         webView = WKWebView()
@@ -33,15 +42,10 @@ class WebViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    
+    func backAction(){
+        //print("Back Button Clicked")
+        dismiss(animated: true, completion: nil)
     }
-    */
-
 }
