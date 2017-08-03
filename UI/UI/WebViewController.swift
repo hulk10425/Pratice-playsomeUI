@@ -22,15 +22,16 @@ class WebViewController: UIViewController {
             webView.load(request)
         }
         
-//        let navController = UINavigationController()
-//        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-//        appDelegate?.window = UIWindow(frame: UIScreen.main.bounds)
-//        
-//        let mainView = WebViewController(nibName: nil, bundle: nil) //ViewController = Name of your controller
-//        navController.viewControllers = [mainView]
-//        appDelegate?.window!.rootViewController = navController
-//        appDelegate?.window?.makeKeyAndVisible()
+        let navController = UINavigationController()
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        appDelegate?.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let mainView = WebViewController(nibName: nil, bundle: nil)
+        navController.viewControllers = [mainView]
+        appDelegate?.window!.rootViewController = navController
+        appDelegate?.window?.makeKeyAndVisible()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(backAction))
+        
     }
     override func loadView() {
         webView = WKWebView()
